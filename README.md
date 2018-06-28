@@ -34,6 +34,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### Host Listeners
 Los host listeners nos ayudan a escuchar los eventos de manera muy sencilla, tiene tres parámetros, el evento, el objetivo del evento y el código a ejecutar cuando se ejecute el evento. <br>
 
+### Host Binders
+Host Binding nos permite editar elementos del DOM o el HTML al que esté asignado desde nuestra directiva. Recibe el atributo del HTML que queremos resaltar. <br>
+
 > Cuando una directiva no recibe ningún parametro no es necesario encerrarla entre corchetes.
 
 

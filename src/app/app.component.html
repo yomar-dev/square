@@ -14,8 +14,8 @@
 
   <ul>
       <ng-container *ngFor="let ciudad of ciudades" [ngSwitch]="ciudad.cercania">
-          <a contar-clicks>
-            <li 
+          <a>
+            <li contar-clicks
               [ngStyle]="{background: (ciudad.poblacion <= 3500000) ? 'teal' : 'tomato'}"
               [ngClass]="{bigPopulation: (ciudad.poblacion <= 3500000)}"
               [resaltar]="ciudad.publicidad"
