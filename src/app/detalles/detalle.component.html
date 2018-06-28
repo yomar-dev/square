@@ -1,1 +1,27 @@
-<h1>Detalle</h1>
+<div class="container">
+    <p></p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a routerLink="/ciudades">Ciudades</a> / {{ciudad.nombre}}
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Atardecer_en_Cartagena_de_Indias_desde_La_Popa..jpg/266px-Atardecer_en_Cartagena_de_Indias_desde_La_Popa..jpg"
+                    alt="Card image cap" width=100% height=220>
+                <div class="card-body">
+                    <h5 class="card-title">{{ciudad.nombre}}</h5>
+                    <p class="card-text">
+                        <strong>Población:</strong> {{ciudad.poblacion}}</p>
+                    <p class="card-text">{{ciudad.descripcion}}</p>
+                    <a href="#" class="btn btn-primary">Visitar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
