@@ -16,7 +16,9 @@
       <ng-container *ngFor="let ciudad of ciudades" [ngSwitch]="ciudad.cercania">
           <li 
             [ngStyle]="{background: (ciudad.poblacion <= 3500000) ? 'teal' : 'tomato'}"
-            [ngClass]="{bigPopulation: (ciudad.poblacion <= 3500000)}">
+            [ngClass]="{bigPopulation: (ciudad.poblacion <= 3500000)}"
+            [resaltar]="ciudad.publicidad"
+          >
               {{ciudad.nombre}} - 
               <span *ngSwitchCase="1">Muy cernana</span>
               <span *ngSwitchCase="2">Cernana</span>
