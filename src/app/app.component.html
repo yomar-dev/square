@@ -11,5 +11,11 @@
         <li *ngIf="ciudad.poblacion <= 3500000">{{ciudad.nombre}}</li>
     </ng-container>
   </ul>
+
+  <ul>
+      <ng-container *ngFor="let ciudad of ciudades">
+          <li [ngStyle]="{background: (ciudad.poblacion <= 3500000) ? 'teal' : 'tomato'}">{{ciudad.nombre}}</li>
+      </ng-container>
+    </ul>
 </div>
 
