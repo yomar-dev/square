@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'Square';
   listo = false;
   cont = 0;
+  nombre = "";
 
   constructor(){
     setTimeout(() => {
