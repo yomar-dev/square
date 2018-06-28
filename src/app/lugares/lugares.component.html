@@ -10,7 +10,9 @@
             <h2>Ciudades</h2>
             <ul class="list-group">
                 <ng-container *ngFor="let ciudad of ciudades">
-                    <li class="list-group-item" *ngIf="ciudad.poblacion <= 3500000">{{ciudad.nombre}}</li>
+                    <a routerLink="/detalle/{{ciudad.id}}">
+                        <li class="list-group-item" *ngIf="ciudad.poblacion <= 3500000">{{ciudad.nombre}}</li>
+                    </a>
                 </ng-container>
             </ul>
         </div>
