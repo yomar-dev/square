@@ -31,6 +31,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 **Instalar Angular Google Maps:** `sudo npm install @agm/core --save`;
 
+### Host Listeners
+Los host listeners nos ayudan a escuchar los eventos de manera muy sencilla, tiene tres parámetros, el evento, el objetivo del evento y el código a ejecutar cuando se ejecute el evento. <br>
+
+> Cuando una directiva no recibe ningún parametro no es necesario encerrarla entre corchetes.
+
 
 ## Enlaces de interes:
 

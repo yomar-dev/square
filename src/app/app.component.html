@@ -14,16 +14,18 @@
 
   <ul>
       <ng-container *ngFor="let ciudad of ciudades" [ngSwitch]="ciudad.cercania">
-          <li 
-            [ngStyle]="{background: (ciudad.poblacion <= 3500000) ? 'teal' : 'tomato'}"
-            [ngClass]="{bigPopulation: (ciudad.poblacion <= 3500000)}"
-            [resaltar]="ciudad.publicidad"
-          >
+          <a contar-clicks>
+            <li 
+              [ngStyle]="{background: (ciudad.poblacion <= 3500000) ? 'teal' : 'tomato'}"
+              [ngClass]="{bigPopulation: (ciudad.poblacion <= 3500000)}"
+              [resaltar]="ciudad.publicidad"
+            >
               {{ciudad.nombre}} - 
               <span *ngSwitchCase="1">Muy cernana</span>
               <span *ngSwitchCase="2">Cernana</span>
               <span *ngSwitchCase="3">Lejana</span>
-          </li>
+            </li>
+          </a>
       </ng-container>
     </ul>
 </div>
