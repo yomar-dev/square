@@ -7,18 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Square';
-  listo = false;
-  cont = 0;
-  nombre = "";
-
+  ciudades:any = [
+    { nombre: "Barcelona" },
+    { nombre: "Berlin" },
+    { nombre: "Cartagena" }
+  ]
   constructor(){
-    setTimeout(() => {
-      this.listo = true;
-    }, 3000)
-  }
-
-  myClick(){
-    this.cont++;
-    console.log(`Click número ${this.cont}`)
+    
   }
 }
