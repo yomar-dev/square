@@ -8,10 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Square';
   listo = false;
+  cont = 0;
 
   constructor(){
     setTimeout(() => {
       this.listo = true;
     }, 3000)
+  }
+
+  myClick(){
+    this.cont++;
+    console.log(`Click número ${this.cont}`)
   }
 }
