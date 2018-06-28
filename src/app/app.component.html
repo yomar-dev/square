@@ -1,61 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Square</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <a class="navbar-brand" href="#">Square</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
-
-<hr />
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Ciudades</h2>
-      <ul class="list-group">
-        <ng-container *ngFor="let ciudad of ciudades">
-          <li class="list-group-item" *ngIf="ciudad.poblacion <= 3500000">{{ciudad.nombre}}</li>
-        </ng-container>
-      </ul>
-    </div>
-
-    <div class="col-md-4">
-      <h2>Destacadas</h2>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contacto</a>
+      </li>
+    </ul>
   </div>
+</nav>
 
-  <!--
-  <ul>
-      <ng-container *ngFor="let ciudad of ciudades" [ngSwitch]="ciudad.cercania">
-          <a>
-            <li contar-clicks
-              [ngStyle]="{background: (ciudad.poblacion <= 3500000) ? 'teal' : 'tomato'}"
-              [ngClass]="{bigPopulation: (ciudad.poblacion <= 3500000)}"
-              [resaltar]="ciudad.publicidad"
-            >
-              {{ciudad.nombre}} - 
-              <span *ngSwitchCase="1">Muy cernana</span>
-              <span *ngSwitchCase="2">Cernana</span>
-              <span *ngSwitchCase="3">Lejana</span>
-            </li>
-          </a>
-      </ng-container>
-  </ul>
--->
-</div>
+<router-outlet></router-outlet>
