@@ -39,6 +39,8 @@ Host Binding nos permite editar elementos del DOM o el HTML al que esté asignad
 
 > Cuando una directiva no recibe ningún parametro no es necesario encerrarla entre corchetes.
 
+**Instalar boostrap:** `npm install bootstrap --save` <br>
+
 
 ## Enlaces de interes:
 
