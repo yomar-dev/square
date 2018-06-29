@@ -48,7 +48,10 @@ Permiten centralizar funcionalidad. <br>
 Pueden ser usados desde cualquier componente. <br>
 Hacen nuestro app mucho más mantenible. <br>
 
+**Instalar Angular Fire2:** `npm install angularfire2 firebase promise-polyfill --save` <br>
+
 
 ## Enlaces de interes:
 
 [Angular Google Maps](https://angular-maps.com/) <br>
+[Angular Fire2](https://github.com/angular/angularfire2/blob/master/docs/ionic/v3.md) <br>

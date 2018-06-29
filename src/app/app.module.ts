@@ -12,12 +12,24 @@ import { CiudadesComponent } from './ciudades/ciudades.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { CiudadesServices } from './services/ciudades.service';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 const appRoutes: Routes = [
   { path: '', component: CiudadesComponent },
   { path: 'ciudades', component: CiudadesComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'contacto', component: ContactoComponent }
 ]
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBai98uWr36EPWd4UGmA_N4gR6ERhaHLxw",
+  authDomain: "square-1530167276218.firebaseapp.com",
+  databaseURL: "https://square-1530167276218.firebaseio.com",
+  storageBucket: "square-1530167276218.appspot.com",
+  messagingSenderId: "478963666652"
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +46,10 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBblSu-nxTi5l5Ns9ND6Ynjz901CXDXS-g'
     }),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [CiudadesServices],
   bootstrap: [AppComponent]
