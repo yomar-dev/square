@@ -1,0 +1,32 @@
+<div class="container">
+    <p></p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a routerLink="/ciudades">Ciudades</a> / Registrar Ciudad
+            </li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container">
+    <label for="">Ciudad</label>
+    <input type="text" class="form-control" placeholder="Ciudad" [(ngModel)]="ciudad.nombre"/> <br>
+
+    <label for="">Poblacion</label>
+    <input type="number" class="form-control" placeholder="Poblacion" [(ngModel)]="ciudad.poblacion"/> <br>
+
+    <label for="">Cercania</label>
+    <input type="number" class="form-control" placeholder="Cercania" [(ngModel)]="ciudad.cercania"/> <br>
+
+    <label for="">Distancia</label>
+    <input type="number" class="form-control" placeholder="Distancia" [(ngModel)]="ciudad.distancia"/> <br>
+
+    <label for="">Descripción</label>
+    <textarea cols="30" rows="10" class="form-control" [(ngModel)]="ciudad.descripcion"></textarea> 
+
+    <hr>
+
+    <a class="btn btn-primary" (click)="registrarCiudad()">Enviar</a>
+    <a class="btn btn-default" routerLink="/lugares">Cancelar</a> <br><br>
+</div>
