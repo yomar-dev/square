@@ -8,10 +8,10 @@
     <div class="row">
         <div class="col-md-8">
             <h2>Ciudades</h2>
-            <a routerLink="/crear" class="btn btn-primary">Registrar Ciudad</a>
+            <a routerLink="/crear/new" class="btn btn-primary">Registrar Ciudad</a>
             <ul class="list-group">
                 <ng-container *ngFor="let ciudad of ciudades">
-                    <a routerLink="/detalle/{{ciudad.id}}" [queryParams]="{action:'view'}">
+                    <a routerLink="/crear/{{ciudad.id}}">
                         <li class="list-group-item">{{ciudad.nombre}}</li>
                     </a>
                 </ng-container>

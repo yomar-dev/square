@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CiudadesServices } from '../services/ciudades.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-crear',
@@ -8,9 +9,17 @@ import { CiudadesServices } from '../services/ciudades.service';
 
 export class CrearComponent {
     ciudad: any = {};
+    id: any = null;
 
-    constructor(private ciudadesService: CiudadesServices) {
-
+    constructor(private ciudadesService: CiudadesServices, private route: ActivatedRoute) {
+        this.id = this.route.snapshot.params['id'];
+        if (this.id != 'new') {
+            this.ciudadesService.getCiudad(this.id)
+                .valueChanges()
+                .subscribe((ciudad) => {
+                    this.ciudad = ciudad;
+                });
+        }
     }
 
     registrarCiudad() {
@@ -19,9 +28,14 @@ export class CrearComponent {
             .subscribe((result) => {
                 this.ciudad.lat = result.json().results[0].geometry.location.lat;
                 this.ciudad.lng = result.json().results[0].geometry.location.lng;
-                this.ciudad.id = Date.now();
-                this.ciudadesService.registrarCiudad(this.ciudad);
-                alert('Ciudad registrada con éxito!!');
+                if (this.id != 'new') {
+                    this.ciudadesService.editarCiudad(this.ciudad);
+                    alert('Ciudad editada con éxito!!');
+                } else {
+                    this.ciudad.id = Date.now();
+                    this.ciudadesService.registrarCiudad(this.ciudad);
+                    alert('Ciudad registrada con éxito!!');
+                }
                 this.ciudad = {};
             })
     }

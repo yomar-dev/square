@@ -55,3 +55,4 @@ Hacen nuestro app mucho más mantenible. <br>
 
 [Angular Google Maps](https://angular-maps.com/) <br>
 [Angular Fire2](https://github.com/angular/angularfire2/blob/master/docs/ionic/v3.md) <br>
+[Documentación Google Maps](https://developers.google.com/maps/documentation/geocoding/start?hl=es) <br>

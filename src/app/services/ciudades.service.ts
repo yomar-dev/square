@@ -29,12 +29,19 @@ export class CiudadesServices {
     }
 
     public registrarCiudad(ciudad){
-        console.log(ciudad);
+        this.afDB.database.ref('ciudades/' + ciudad.id).set(ciudad);
+    }
+
+    public editarCiudad(ciudad){
         this.afDB.database.ref('ciudades/' + ciudad.id).set(ciudad);
     }
 
     public obtenerGeoData(direccion){
         // http://maps.google.com/maps/api/geocode/json?address=
         return this.http.get('http://maps.google.com/maps/api/geocode/json?address=' + direccion);
+    }
+
+    public getCiudad(id){
+        return this.afDB.object('ciudades/' + id);
     }
 }
