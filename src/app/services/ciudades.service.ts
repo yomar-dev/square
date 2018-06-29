@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
+import { Http } from '@angular/http';
 
 @Injectable()
 export class CiudadesServices {
@@ -15,14 +16,13 @@ export class CiudadesServices {
         { id: 9, nombre: "Rio de Janeiro", poblacion: 7800000, cercania: 3, distancia: 31, descripcion: "Junto al mar, se encuentra la Ciudad Vieja amurallada, que se fundó en el siglo XVI, con plazas, calles de adoquines y edificios coloniales coloridos. Con un clima tropical, la ciudad también es un destino popular por sus playas. Se puede llegar en bote a la Isla de Barú, con playas de arena blanca y palmeras, y alas Islas del Rosario, famosas por sus arrecifes de coral." }
     ];
 
-    constructor(private afDB:AngularFireDatabase){}
+    constructor(private afDB:AngularFireDatabase, private http: Http){}
 
     public getCiudades(){
         return this.afDB.list('ciudades/');
     }
 
     public buscarCiudad(id) {
-        console.log('Ciudades Services: ', this.ciudades);
         return this.ciudades.filter((ciudad) => {
             return ciudad.id == id
         })[0] || null;
@@ -31,5 +31,10 @@ export class CiudadesServices {
     public registrarCiudad(ciudad){
         console.log(ciudad);
         this.afDB.database.ref('ciudades/' + ciudad.id).set(ciudad);
+    }
+
+    public obtenerGeoData(direccion){
+        // http://maps.google.com/maps/api/geocode/json?address=
+        return this.http.get('http://maps.google.com/maps/api/geocode/json?address=' + direccion);
     }
 }
