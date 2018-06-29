@@ -13,6 +13,9 @@ export class CiudadesComponent {
   ciudades = null;
 
   constructor(private ciudadesService: CiudadesServices) {
-    this.ciudades = ciudadesService.getCiudades();
+    ciudadesService.getCiudades()
+      .valueChanges().subscribe(ciudades => {
+        this.ciudades = ciudades;
+      })
   }
 }

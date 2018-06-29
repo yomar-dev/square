@@ -14,6 +14,9 @@ export class CrearComponent {
     }
 
     registrarCiudad(){
+        this.ciudad.id = Date.now();
         this.ciudadesService.registrarCiudad(this.ciudad);
+        alert('Ciudad registrada con éxito!!');
+        this.ciudad = {};
     }
 }

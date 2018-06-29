@@ -16,5 +16,7 @@ export class DetalleComponent {
         console.log(this.route.snapshot.params['id']);
         console.log(this.route.snapshot.queryParams['action']);
         this.ciudad = this.ciudadesService.buscarCiudad(this.id);
+        console.log('ID: ', this.id);
+        console.log('Ciudad: ', this.ciudad);
     }
 }

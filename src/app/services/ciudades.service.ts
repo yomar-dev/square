@@ -18,10 +18,11 @@ export class CiudadesServices {
     constructor(private afDB:AngularFireDatabase){}
 
     public getCiudades(){
-        return this.ciudades;
+        return this.afDB.list('ciudades/');
     }
 
     public buscarCiudad(id) {
+        console.log('Ciudades Services: ', this.ciudades);
         return this.ciudades.filter((ciudad) => {
             return ciudad.id == id
         })[0] || null;
@@ -29,6 +30,6 @@ export class CiudadesServices {
 
     public registrarCiudad(ciudad){
         console.log(ciudad);
-        this.afDB.database.ref('ciudades/1').set(ciudad);
+        this.afDB.database.ref('ciudades/' + ciudad.id).set(ciudad);
     }
 }
