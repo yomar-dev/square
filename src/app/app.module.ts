@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalles/detalle.component';
 import { CiudadesComponent } from './ciudades/ciudades.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { CiudadesServices } from './services/ciudades.service';
 
 const appRoutes: Routes = [
   { path: '', component: CiudadesComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [CiudadesServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
