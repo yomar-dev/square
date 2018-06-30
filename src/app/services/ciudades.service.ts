@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 
 @Injectable()
 export class CiudadesServices {
+    API_ENDPOINT = "https://square-1530167276218.firebaseio.com";
     ciudades: any = [
         { id: 1, nombre: "Barcelona", poblacion: 2500000, cercania: 1, distancia: 5, descripcion: "Junto al mar, se encuentra la Ciudad Vieja amurallada, que se fundó en el siglo XVI, con plazas, calles de adoquines y edificios coloniales coloridos. Con un clima tropical, la ciudad también es un destino popular por sus playas. Se puede llegar en bote a la Isla de Barú, con playas de arena blanca y palmeras, y alas Islas del Rosario, famosas por sus arrecifes de coral." },
         { id: 2, nombre: "Berlin", poblacion: 3700000, cercania: 1, distancia: 8, descripcion: "Junto al mar, se encuentra la Ciudad Vieja amurallada, que se fundó en el siglo XVI, con plazas, calles de adoquines y edificios coloniales coloridos. Con un clima tropical, la ciudad también es un destino popular por sus playas. Se puede llegar en bote a la Isla de Barú, con playas de arena blanca y palmeras, y alas Islas del Rosario, famosas por sus arrecifes de coral." },
@@ -29,7 +30,9 @@ export class CiudadesServices {
     }
 
     public registrarCiudad(ciudad){
-        this.afDB.database.ref('ciudades/' + ciudad.id).set(ciudad);
+        //this.afDB.database.ref('ciudades/' + ciudad.id).set(ciudad);
+        const headers = new Headers({"Content-Type":"application/json"});
+        return this.http.post(this.API_ENDPOINT+'/ciudades.json', ciudad, {headers:headers}).subscribe();
     }
 
     public editarCiudad(ciudad){
