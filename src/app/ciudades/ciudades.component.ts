@@ -19,6 +19,8 @@ export class CiudadesComponent {
           this.ciudades = ciudades;
         //this.ciudades = ciudades;
         this.ciudades = Object.keys(this.ciudades).map((key) => { return this.ciudades[key] })
+      }, error => {
+        alert("Estamos teniendo problemas al mostrar las ciudades!!")
       })
   }
 }
