@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
+import { Router } from "@angular/router";
 
 @Injectable()
 
 export class AutorizacionService{
-    constructor(private angularFireAuth: AngularFireAuth){
+    constructor(private angularFireAuth: AngularFireAuth, private router: Router){
         this.isLogged();
     }
 
@@ -13,6 +14,7 @@ export class AutorizacionService{
             .then((response) => {
                 alert("Login exitoso!!");
                 console.log(response);
+                this.router.navigate(['ciudades']);
             })
             .catch((error) => {
                 alert("Se ha presentado un error");
@@ -25,6 +27,7 @@ export class AutorizacionService{
             .then((response) => {
                 alert("Registro exitoso!!");
                 console.log(response);
+                this.router.navigate(['ciudades']);
             })
             .catch((error) => {
                 alert("Se ha presentado un error");
