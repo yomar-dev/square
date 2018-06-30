@@ -14,8 +14,11 @@ export class CiudadesComponent {
 
   constructor(private ciudadesService: CiudadesServices) {
     ciudadesService.getCiudades()
-      .valueChanges().subscribe(ciudades => {
-        this.ciudades = ciudades;
+      //.valueChanges().subscribe(ciudades => {
+        .subscribe(ciudades => {
+          this.ciudades = ciudades.json();
+        //this.ciudades = ciudades;
+        this.ciudades = Object.keys(this.ciudades).map((key) => { return this.ciudades[key] })
       })
   }
 }

@@ -20,7 +20,8 @@ export class CiudadesServices {
     constructor(private afDB:AngularFireDatabase, private http: Http){}
 
     public getCiudades(){
-        return this.afDB.list('ciudades/');
+        //return this.afDB.list('ciudades/');
+        return this.http.get(this.API_ENDPOINT+'/ciudades.json');
     }
 
     public buscarCiudad(id) {
