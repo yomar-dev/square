@@ -7,7 +7,12 @@ import { AutorizacionService } from '../services/autorizacion.service';
 })
 
 export class RegistroComponent {
+    registro: any = {};
     constructor(private autorizacionService: AutorizacionService){
-        this.autorizacionService.registro("Email", "Password");
+        
+    }
+
+    registrar(){
+        this.autorizacionService.registro(this.registro.email, this.registro.password);
     }
 }
