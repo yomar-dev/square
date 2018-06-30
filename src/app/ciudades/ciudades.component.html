@@ -14,7 +14,7 @@
                     <a routerLink="/crear/{{ciudad.id}}">
                         <li class="list-group-item">
                             {{ciudad.nombre | titlecase}} <br>
-                            <small>Creado: {{ciudad.id | date}}</small>
+                            <small>Creado: {{ciudad.id | date: "dd/MM/yyyy"}}</small>
                         </li>
                     </a>
                 </ng-container>
