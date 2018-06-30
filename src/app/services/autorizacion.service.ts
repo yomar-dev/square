@@ -44,4 +44,8 @@ export class AutorizacionService{
         alert("Sesión cerrada");
         this.router.navigate(['ciudades']);
     }
+
+    public getUser(){
+        return this.angularFireAuth.auth;
+    }
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AutorizacionService } from './services/autorizacion.service';
+import { Observable } from 'rxjs';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +10,17 @@ import { AutorizacionService } from './services/autorizacion.service';
 })
 export class AppComponent {
   loggedIn = false;
+  loggedUser: any = null;
 
-  constructor(private autorizacionService: AutorizacionService){
+  constructor(private autorizacionService: AutorizacionService) {
     this.autorizacionService.isLogged()
       .subscribe((result) => {
-        if(result && result.uid){
+        if (result && result.uid) {
           this.loggedIn = true;
-        }else{
+          setTimeout(() => {
+            this.loggedUser = this.autorizacionService.getUser().currentUser.email;
+          }, 500)
+        } else {
           this.loggedIn = false;
         }
       }, (error) => {
@@ -22,7 +28,7 @@ export class AppComponent {
       })
   }
 
-  logout(){
+  logout() {
     this.autorizacionService.logout();
   }
 }
