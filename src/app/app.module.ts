@@ -20,13 +20,14 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AutorizacionService } from './services/autorizacion.service';
+import { MyGuard } from './services/my-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: CiudadesComponent },
   { path: 'ciudades', component: CiudadesComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'crear/:id', component: CrearComponent },
+  { path: 'crear/:id', component: CrearComponent, canActivate: [MyGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent }
 ]
@@ -63,7 +64,7 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     HttpModule
   ],
-  providers: [CiudadesServices, AutorizacionService],
+  providers: [CiudadesServices, AutorizacionService, MyGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

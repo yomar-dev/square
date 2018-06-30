@@ -21,13 +21,13 @@ export class CiudadesServices {
     constructor(private afDB:AngularFireDatabase, private http: Http){}
 
     public getCiudades(){
-        //return this.afDB.list('ciudades/');
+        return this.afDB.list('ciudades/');
         //return this.http.get(this.API_ENDPOINT+'/ciudades.json');
-        return this.http.get(this.API_ENDPOINT+'/.json')
+        /*return this.http.get(this.API_ENDPOINT+'/.json')
             .pipe(map((resultado) => {
                 const data = resultado.json().ciudades;
                 return data;
-            }))
+            }))*/
     }
 
     public buscarCiudad(id) {
