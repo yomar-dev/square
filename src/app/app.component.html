@@ -27,6 +27,12 @@
           <a class="nav-link" routerLink="/registro">Registro</a>
         </li>
       </ul>
+
+      <ul class="navbar-nav justify-content-end" *ngIf="loggedIn">
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+        </ul>
   </div>
 </nav>
 
