@@ -13,3 +13,17 @@ li{
     font-family: sans-serif;
     font-weight: 500;
 }
+
+.form-login,
+.form-register{
+    background: #ccc;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.form-login a,
+.form-register a{
+    border: 1px solid rgba(0, 0, 0, .1);
+}

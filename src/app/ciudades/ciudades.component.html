@@ -11,12 +11,11 @@
             <a routerLink="/crear/new" class="btn btn-primary">Registrar Ciudad</a>
             <ul class="list-group">
                 <ng-container *ngFor="let ciudad of ciudades">
-                    <a routerLink="/crear/{{ciudad.id}}">
-                        <li class="list-group-item">
-                            {{ciudad.nombre | titlecase}} <br>
-                            <small>Creado: {{ciudad.id | date: "dd/MM/yyyy"}}</small>
-                        </li>
-                    </a>
+                    <li class="list-group-item">
+                        <a routerLink="/crear/{{ciudad.id}}"><h3>{{ciudad.nombre | titlecase}}</h3></a>
+                        <small>Creado: {{ciudad.id | date: "dd/MM/yyyy"}}</small>
+                        <p>{{ciudad.descripcion}}</p>
+                    </li>
                 </ng-container>
             </ul>
         </div>

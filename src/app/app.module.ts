@@ -17,13 +17,18 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CrearComponent } from './crear/crear.component';
 import { HttpModule } from '@angular/http';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { AutorizacionService } from './services/autorizacion.service';
 
 const appRoutes: Routes = [
   { path: '', component: CiudadesComponent },
   { path: 'ciudades', component: CiudadesComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'crear/:id', component: CrearComponent }
+  { path: 'crear/:id', component: CrearComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent }
 ]
 
 export const firebaseConfig = {
@@ -42,7 +47,9 @@ export const firebaseConfig = {
     DetalleComponent,
     CiudadesComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,7 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     HttpModule
   ],
-  providers: [CiudadesServices],
+  providers: [CiudadesServices, AutorizacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
