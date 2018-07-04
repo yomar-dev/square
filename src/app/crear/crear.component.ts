@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { CiudadesServices } from '../services/ciudades.service';
 import { ActivatedRoute } from '@angular/router';
+//import { Observable } from 'rxjs';
+//import 'rxjs/Rx';
+import { FormControl } from '@angular/forms';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'app-crear',
@@ -10,8 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 export class CrearComponent {
     ciudad: any = {};
     id: any = null;
-
-    constructor(private ciudadesService: CiudadesServices, private route: ActivatedRoute) {
+    //results$: Observable<any>;
+    //private searchField: FormControl;
+    constructor(private ciudadesService: CiudadesServices, private route: ActivatedRoute, private http: Http) {
         this.id = this.route.snapshot.params['id'];
         if (this.id != 'new') {
             this.ciudadesService.getCiudad(this.id)
@@ -20,6 +25,13 @@ export class CrearComponent {
                     this.ciudad = ciudad;
                 });
         }
+        /*const URL = 'https://maps.google.com/maps/api/geocode/json';
+        this.searchField = new FormControl();
+        this.results$ = this.searchField.valueChanges
+            //.switchMap(query => this.http.get(`${URL}?address=${query}`))
+            .switchMap(query => this.http.get(`${URL}?address=${query}`))
+            .map(response => response.json)
+            .map(response => response.results);*/
     }
 
     registrarCiudad() {
